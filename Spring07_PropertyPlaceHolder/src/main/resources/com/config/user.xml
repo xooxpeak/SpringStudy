@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- jdbc.properties 등록 1 - 현재 spring 5.x에서는 deprecated 됨 -->
+	<!-- jdbc.properties 등록 -->
+<!--  <bean id="xxx" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+		<property name="location" value="classpath:com/config/jdbc.properties" />
+	</bean> -->	
+	
+	
+	
+	<!-- jdbc.properties 등록 2 - 기억할 것-->
+	<context:property-placeholder location="classpath:com/config/jdbc.properties" />
+	
+	<bean id="service" class="com.service.UserService">
+		<!-- 4개의 데이터 주입받기 -->
+		<property name="driver" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="userid" value="${jdbc.username}" />
+		<property name="passwd" value="${jdbc.password}" />
+	</bean>
+
+</beans>
