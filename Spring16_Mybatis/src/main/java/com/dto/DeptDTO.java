@@ -2,16 +2,16 @@ package com.dto;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("DeptDTO")
+@Alias("DeptDTO")  //별칭
 public class DeptDTO {
 	
+	//변수
 	int deptno;
 	String dname;
 	String loc;
 	
-	public DeptDTO() {
-		// TODO Auto-generated constructor stub
-	}
+	//생성자
+	public DeptDTO() {}
 	
 	public DeptDTO(int deptno, String dname, String loc) {
 		super();
@@ -19,6 +19,8 @@ public class DeptDTO {
 		this.dname = dname;
 		this.loc = loc;
 	}
+	
+	//getter, setter
 	public int getDeptno() {
 		return deptno;
 	}
@@ -38,6 +40,7 @@ public class DeptDTO {
 		this.loc = loc;
 	}
 	
+	//toString()
 	@Override
 	public String toString() {
 		return "DeptDTO [deptno=" + deptno + ", dname=" + dname + ", loc=" + loc + "]";

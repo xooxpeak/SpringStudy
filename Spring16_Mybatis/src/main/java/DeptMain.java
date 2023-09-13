@@ -1,6 +1,5 @@
 import java.util.List;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.dto.DeptDTO;
@@ -10,20 +9,26 @@ public class DeptMain {
 
 	public static void main(String[] args) {
 
-		//user.xml을 알리고
-		//객체를 통해 user.xml에 있는 설정을 읽어온다.
-		ApplicationContext ctx =
-				new GenericXmlApplicationContext("classpath:com/config/user.xml");
+		GenericXmlApplicationContext ctx = 
+				new GenericXmlApplicationContext("classpath:com/config/spring_config.xml");
 		
-		//getBean(이름,타입)으로 빈을 조회한다.
-		DeptService service =
-				ctx.getBean("service", DeptService.class);
-
-		//service의 findAll()을 list에 담아 출력한다.
-		List<DeptDTO> list = service.findAll();
-		System.out.println(list);
+		DeptService service = ctx.getBean("deptService", DeptService.class);   //serviceImpl 이름 넣어줌
 		
+		//저장 (스프링에서는 자동 commit)
+//		DeptDTO xxx = new DeptDTO(13, "개발", "서울");
+//		int n = service.deptAdd(xxx);
+		
+		//수정
+//		DeptDTO xxx2 = new DeptDTO(13, "개발부", "서울시");
+//		int n2 = service.deptUpdate(xxx2);
+	
+		//삭제
+		int n3 = service.deptDelete(80);
+		
+		List<DeptDTO> list = service.deptList();
+		for (DeptDTO dto : list) {
+			System.out.println(dto);
+		}
 	}
 
 }
-

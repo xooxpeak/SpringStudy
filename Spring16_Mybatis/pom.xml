@@ -88,7 +88,8 @@
 </dependency>
 
 
-<!-- DB연동 추가 -->
+<!-- DB 연동 의존성 -->
+
 <dependency>
     <groupId>org.mybatis</groupId>
     <artifactId>mybatis</artifactId>
@@ -122,7 +123,6 @@
     <artifactId>ojdbc6</artifactId>
     <version>11.2.0.1.0</version>
 </dependency>
-
 
 
 
